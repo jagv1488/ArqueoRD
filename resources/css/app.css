@@ -1,0 +1,9 @@
+/* resources/css/app.css */
+
+/* Importar todos los íconos gratuitos de FontAwesome */
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+/* Directivas de Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
