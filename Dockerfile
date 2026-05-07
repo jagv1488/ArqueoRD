@@ -1,6 +1,6 @@
 FROM php:8.2-fpm
 
-# Instalar extensiones necesarias para Laravel
+# Instalar dependencias del sistema
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
     nodejs \
     npm
 
-# Limpiar caché de apt
+# Limpiar caché
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Instalar extensiones PHP
@@ -22,27 +22,21 @@ RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
 # Instalar Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Configurar directorio de trabajo
+# Configurar directorio
 WORKDIR /var/www/html
 
-# Copiar archivos de composer primero (mejor para caché)
-COPY composer.json composer.lock ./
-
-# Instalar dependencias PHP
-RUN composer install --no-interaction --optimize-autoloader --no-dev
-
-# Copiar el resto de archivos
+# Copiar TODO el código primero (SOLUCIÓN DEL ERROR)
 COPY . .
 
-# Instalar dependencias NPM y compilar assets (si usas Vite)
+# Instalar dependencias PHP (ahora artisan YA existe)
+RUN composer install --no-interaction --optimize-autoloader --no-dev
+
+# Instalar dependencias NPM y compilar assets
 RUN npm install && npm run build
 
 # Configurar permisos
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Exponer puerto
 EXPOSE 9000
-
-# Comando para iniciar PHP-FPM
 CMD ["php-fpm"]
