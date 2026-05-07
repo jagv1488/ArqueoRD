@@ -9,7 +9,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class ArqueoSeeder extends Seeder
+class ArqueoDataSeeder extends Seeder
 {
     public function run(): void
     {
