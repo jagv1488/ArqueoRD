@@ -40,7 +40,7 @@ COPY . .
 # Instalar dependencias PHP
 RUN composer install --no-interaction --optimize-autoloader --no-dev
 
-# Instalar dependencias frontend
+# Frontend
 RUN npm install && npm run build
 
 # Permisos Laravel
@@ -50,14 +50,18 @@ RUN chown -R www-data:www-data /var/www/html/storage \
 RUN chmod -R 775 /var/www/html/storage \
     /var/www/html/bootstrap/cache
 
-# Copiar configuración nginx
+# ELIMINAR CONFIG DEFAULT DE NGINX
+RUN rm -f /etc/nginx/sites-enabled/default
+RUN rm -f /etc/nginx/conf.d/default.conf
+
+# Copiar configuración nginx personalizada
 COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copiar configuración supervisor
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Exponer HTTP
+# Exponer puerto
 EXPOSE 80
 
-# Iniciar nginx + php-fpm
-CMD ["/usr/bin/supervisord"]
+# Iniciar servicios
+CMD ["/usr/bin/supervisord", "-n"]
