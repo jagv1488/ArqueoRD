@@ -4,20 +4,29 @@ FROM php:8.2-fpm
 RUN apt-get update && apt-get install -y \
     git \
     curl \
+    unzip \
+    zip \
+    libzip-dev \
     libpng-dev \
     libonig-dev \
     libxml2-dev \
-    zip \
-    unzip \
-    libzip-dev \
     nodejs \
-    npm
+    npm \
+    nginx \
+    supervisor
 
-# Limpiar caché
+# Limpiar cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Instalar extensiones PHP
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
+RUN docker-php-ext-install \
+    pdo_mysql \
+    mbstring \
+    exif \
+    pcntl \
+    bcmath \
+    gd \
+    zip
 
 # Instalar Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
@@ -25,18 +34,30 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Configurar directorio
 WORKDIR /var/www/html
 
-# Copiar TODO el código primero (SOLUCIÓN DEL ERROR)
+# Copiar proyecto
 COPY . .
 
-# Instalar dependencias PHP (ahora artisan YA existe)
+# Instalar dependencias PHP
 RUN composer install --no-interaction --optimize-autoloader --no-dev
 
-# Instalar dependencias NPM y compilar assets
+# Instalar dependencias frontend
 RUN npm install && npm run build
 
-# Configurar permisos
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
-RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+# Permisos Laravel
+RUN chown -R www-data:www-data /var/www/html/storage \
+    /var/www/html/bootstrap/cache
 
-EXPOSE 9000
-CMD ["php-fpm"]
+RUN chmod -R 775 /var/www/html/storage \
+    /var/www/html/bootstrap/cache
+
+# Copiar configuración nginx
+COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copiar configuración supervisor
+COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# Exponer HTTP
+EXPOSE 80
+
+# Iniciar nginx + php-fpm
+CMD ["/usr/bin/supervisord"]
