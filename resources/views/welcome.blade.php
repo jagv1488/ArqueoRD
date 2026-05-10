@@ -518,7 +518,7 @@
 
                 <div class="flex flex-col items-center gap-3 group">
                     <i class="fas fa-wind text-4xl text-[#38B2AC] group-hover:scale-110 transition-transform duration-300 drop-shadow-sm"></i>
-                    <span class="text-[10px] font-bold text-stone-500 uppercase tracking-wider group-hover:text-[#38B2AC] transition-colors">Tailwind CSS</span>
+                    <span class="text-[10px] font-bold text-stone-500 uppercase tracking-wider group-hover:text-[#38B2AC] transition-colors">TailwindCSS</span>
                 </div>
 
                 <div class="flex flex-col items-center gap-3 group">
