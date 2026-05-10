@@ -29,7 +29,7 @@
                 <a href="{{ url('/') }}" class="group relative inline-flex items-center justify-center px-5 py-2 text-[10px] font-black uppercase tracking-widest text-white transition-all duration-300 bg-gradient-to-r from-[#C56A3D] to-[#8B5A2B] rounded-full shadow-[0_4px_15px_rgba(197,106,61,0.3)] transform hover:-translate-y-1 hover:shadow-[0_8px_25px_rgba(197,106,61,0.5)] overflow-hidden border border-white/20">
                     <span class="absolute w-0 h-0 transition-all duration-500 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-20"></span>
                     <i class="fas fa-rocket mr-2 drop-shadow-md group-hover:animate-bounce"></i>
-                    <span class="relative drop-shadow-md">Portal Público</span>
+                    <span class="relative drop-shadow-md">Portal Público </span>
                 </a>
 
                 <x-dropdown align="right" width="48">
