@@ -37,6 +37,7 @@
                 <a href="{{ url('/') }}" class="hover:text-[#C56A3D] transition">Inicio</a>
                 <a href="{{ route('catalog.index') }}" class="hover:text-[#C56A3D] text-[#1F4E6E] font-bold transition">Catálogo</a>
                 <a href="{{ url('/#funciones') }}" class="hover:text-[#C56A3D] transition">Funciones</a>
+                <a href="{{ url('/#nuestra-historia') }}" class="hover:text-[#C56A3D] transition">Nuestra Historia</a>
                 <a href="{{ route('contacto') }}" class="hover:text-[#C56A3D] transition">Contacto</a>
 
                 @if (Route::has('login'))
@@ -62,6 +63,7 @@
                 <a href="{{ url('/') }}"><i class="fas fa-home text-[#C56A3D] w-5"></i> Inicio</a>
                 <a href="{{ route('catalog.index') }}" class="font-bold text-[#1F4E6E]"><i class="fas fa-search text-[#C56A3D] w-5"></i> Catálogo</a>
                 <a href="{{ url('/#funciones') }}"><i class="fas fa-cogs text-[#C56A3D] w-5"></i> Funciones</a>
+                <a href="{{ url('/#nuestra-historia') }}"><i class="fas fa-robot text-[#C56A3D] w-5"></i> Nuestra Historia</a>
                 <a href="{{ route('contacto') }}"><i class="fas fa-envelope text-[#C56A3D] w-5"></i> Contacto</a>
                 <hr>
                 @auth

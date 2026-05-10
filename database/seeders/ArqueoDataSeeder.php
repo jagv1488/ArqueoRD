@@ -15,10 +15,10 @@ class ArqueoDataSeeder extends Seeder
     {
         // 1. CREAR USUARIOS DE PRUEBA (Admin y Arqueólogos Históricos)
         $admin = User::firstOrCreate(
-            ['email' => 'admin@arqueord.gob.do'],
+            ['email' => 'demo@arqueord.org.do'],
             [
                 'name' => 'Dirección Nacional de Patrimonio',
-                'password' => Hash::make('password123'),
+                'password' => Hash::make('Demo123'),
                 'role' => 'admin',
                 'is_verified' => true,
             ]
