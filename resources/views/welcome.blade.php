@@ -350,6 +350,7 @@
         </div>
     </section>
 
+
     <section id="patrocinadores" class="py-16 bg-white border-t border-[#E6DBCB] overflow-hidden">
         <div class="container mx-auto px-5 mb-8 text-center">
             <p class="text-stone-400 font-bold uppercase tracking-widest text-xs">Con el respaldo institucional de</p>
