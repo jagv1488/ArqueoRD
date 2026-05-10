@@ -100,39 +100,29 @@
                     </div>
                 </div>
 
-                <div class="relative w-full max-w-xl mx-auto" x-data="{ videoSrc: null }">
+                <div class="relative w-full max-w-xl mx-auto mt-10 lg:mt-0">
                     <div class="absolute -inset-1 bg-gradient-to-r from-[#C56A3D] to-[#1F4E6E] rounded-[2.5rem] blur opacity-40 animate-pulse"></div>
 
-                    <div class="relative bg-stone-900 rounded-[2rem] overflow-hidden shadow-2xl aspect-video border-4 border-white/50 flex items-center justify-center group">
-
-                        <div x-show="!videoSrc" class="text-center p-6 transition-all transform group-hover:scale-105">
-                            <div class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4 border border-white/20 backdrop-blur-sm">
-                                <i class="fas fa-play text-3xl text-white pl-1"></i>
-                            </div>
-                            <h3 class="text-white font-bold text-lg mb-2">Video del Proyecto</h3>
-
-                            <label class="cursor-pointer inline-block bg-[#C56A3D] hover:bg-[#A65D3A] text-white px-6 py-2.5 rounded-xl font-bold text-xs uppercase tracking-widest transition shadow-lg">
-                                <i class="fas fa-upload mr-2"></i> Cargar Video
-                                <input type="file" accept="video/*" class="hidden" @change="videoSrc = URL.createObjectURL($event.target.files[0])">
-                            </label>
-                            <p class="text-stone-400 text-[10px] mt-3">Haz clic para previsualizar un video local</p>
-                        </div>
-
-                        <template x-if="videoSrc">
-                            <div class="w-full h-full relative">
-                                <video controls autoplay class="w-full h-full object-cover bg-black" :src="videoSrc"></video>
-
-                                <button @click="videoSrc = null" class="absolute top-4 right-4 bg-black/60 hover:bg-red-600 text-white w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-md transition z-50">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </div>
-                        </template>
-
+                    <div class="relative bg-stone-900 rounded-[2rem] overflow-hidden shadow-2xl aspect-video border-4 border-white/50 flex items-center justify-center">
+                        <video controls autoplay muted loop class="w-full h-full object-cover bg-black" src="{{ asset('storage/ArqueoRDvideo.mp4') }}"></video>
                     </div>
 
-                    <div class="absolute -bottom-5 left-1/2 transform -translate-x-1/2 flex gap-3 w-full justify-center">
-                        <span class="bg-white text-[#1F4E6E] text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full shadow-lg border border-stone-100"><i class="fas fa-robot mr-1"></i> STEAM</span>
-                        <span class="bg-white text-[#C56A3D] text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full shadow-lg border border-stone-100"><i class="fas fa-award mr-1"></i> FLL Unearthed</span>
+                    <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 flex flex-wrap gap-2 md:gap-3 w-[110%] justify-center z-30">
+                        <span class="bg-white text-[#1F4E6E] text-[9px] md:text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full shadow-md border border-stone-100 cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:scale-110 hover:shadow-[0_10px_20px_rgba(31,78,110,0.25)] hover:border-[#1F4E6E] whitespace-nowrap">
+                            <i class="fas fa-robot mr-1"></i> STEAM
+                        </span>
+
+                        <span class="bg-white text-[#C56A3D] text-[9px] md:text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full shadow-md border border-stone-100 cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:scale-110 hover:shadow-[0_10px_20px_rgba(197,106,61,0.25)] hover:border-[#C56A3D] whitespace-nowrap">
+                            <i class="fas fa-award mr-1"></i> FLL Unearthed
+                        </span>
+
+                        <span class="bg-white text-[#8B5A2B] text-[9px] md:text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full shadow-md border border-stone-100 cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:scale-110 hover:shadow-[0_10px_20px_rgba(139,90,43,0.25)] hover:border-[#8B5A2B] whitespace-nowrap">
+                            <i class="fas fa-microchip mr-1"></i> EV3 Robotic
+                        </span>
+
+                        <span class="bg-white text-[#00758F] text-[9px] md:text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full shadow-md border border-stone-100 cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:scale-110 hover:shadow-[0_10px_20px_rgba(0,117,143,0.25)] hover:border-[#00758F] whitespace-nowrap">
+                            <i class="fas fa-users-cog mr-1"></i> GeekBots
+                        </span>
                     </div>
                 </div>
 
@@ -307,7 +297,7 @@
 
                 <div>
                     <div class="flex items-center gap-4 mb-6">
-                        <h4 class="text-sm font-black uppercase tracking-widest text-stone-500 bg-stone-100 px-4 py-2 rounded-lg border border-stone-200">
+                        <h4 class="text-sm font-black uppercase tracking-widest text-[#8B5A2B] bg-[#FEFAE0] px-4 py-2 rounded-lg border border-[#D4A373]/30">
                             Miembros del Club de Robótica y Tecnología
                         </h4>
                         <div class="flex-grow h-px bg-stone-200"></div>
@@ -506,9 +496,9 @@
         </script>
     </section>
 
-    <section id="tecnologias" class="py-16 bg-white border-t border-[#E6DBCB]">
+    <section id="tecnologias" class="py-16 bg-[#1F4E6E] border-t border-[#E6DBCB]">
         <div class="container mx-auto px-5 text-center">
-            <h3 class="text-xs font-black uppercase tracking-widest text-stone-400 mb-10">Desarrollado con Tecnologías de Vanguardia</h3>
+            <h3 class="text-xl font-black uppercase tracking-widest text-white mb-10">Desarrollado con Tecnologías de Vanguardia</h3>
 
             <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16 opacity-80 hover:opacity-100 transition-opacity duration-300">
                 <div class="flex flex-col items-center gap-3 group">

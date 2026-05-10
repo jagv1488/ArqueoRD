@@ -25,12 +25,24 @@
 </head>
 <body class="antialiased overflow-x-hidden text-stone-800 flex flex-col min-h-screen">
 
-    <header x-data="{ mobileOpen: false }" class="bg-white/95 backdrop-blur-sm shadow-sm sticky top-0 z-50 border-b border-[#E6DBCB]">
+    <header x-data="{ mobileOpen: false }" class="bg-white/95 backdrop-blur-sm sticky top-0 z-50 border-b border-[#E6DBCB]">
         <div class="container mx-auto px-5 py-3 flex justify-between items-center">
-            <a href="{{ url('/') }}" class="flex items-center gap-2 cursor-pointer transition hover:opacity-80">
-                <i class="fas fa-trowel text-3xl text-[#C56A3D]"></i>
-                <span class="font-serif font-bold text-2xl text-[#8B5A2B] tracking-tight">ArqueoRD</span>
-                <span class="hidden lg:inline-block text-xs text-stone-500 italic ml-1">desenterrando el futuro</span>
+
+            <a href="{{ url('/') }}" class="group flex items-center gap-3 cursor-pointer transition-all duration-300">
+                <div class="relative flex items-center justify-center">
+                    <div class="absolute inset-0 bg-[#C56A3D] blur-lg opacity-0 group-hover:opacity-40 rounded-full transition-opacity duration-500"></div>
+                    <img src="{{ asset('storage/Logo.svg') }}" alt="Logo ArqueoRD" class="w-10 h-10 md:w-14 md:h-14 transform group-hover:-rotate-6 group-hover:scale-110 transition-all duration-500 ease-out z-10">
+                </div>
+
+                <div class="flex flex-col justify-center transform group-hover:translate-x-1 transition-transform duration-500">
+                    <div class="font-sans font-black text-2xl md:text-[1.70rem] leading-none tracking-tighter flex items-baseline">
+                        <span class="text-[#8B5A2B]">ARQUEO</span>
+                        <span class="text-[#1F4E6E]">RD</span>
+                    </div>
+                    <span class="text-[8px] md:text-[9.5px] font-black tracking-[0.2em] text-black mt-1 uppercase opacity-90 group-hover:opacity-100 transition-opacity">
+                        desenterrando el futuro
+                    </span>
+                </div>
             </a>
 
             <nav class="hidden md:flex gap-6 items-center text-stone-700 font-medium text-sm">
@@ -79,12 +91,13 @@
         {{ $slot }}
     </main>
 
-    <footer class="bg-[#1F4E6E] text-white py-12 mt-auto border-t-4 border-[#C56A3D]">
+    <footer class="bg-transparent text-stone-700 py-12 mt-auto border-t-4 border-[#C56A3D]">
         <div class="container mx-auto px-5 text-center">
-            <img src="{{ asset('storage/logo.png') }}" alt="Logo ArqueoRD" class="h-16 mx-auto mb-4 object-contain" onerror="this.style.display='none'">
+            <img src="{{ asset('storage/Logo.svg') }}" alt="Logo ArqueoRD" class="h-20 mx-auto mb-4 object-contain" onerror="this.style.display='none'">
 
-            <p class="text-sm text-blue-50 font-medium">© {{ date('Y') }} ArqueoRD · Bitácora Digital del Patrimonio Arqueológico Dominicano.</p>
-            <div class="mt-3 text-xs text-blue-200/70 max-w-xl mx-auto">
+            <p class="text-sm font-bold uppercase tracking-widest text-[#8B5A2B]">© {{ date('Y') }} ArqueoRD</p>
+            <p class="text-xs font-medium mt-1">Bitácora Digital del Patrimonio Arqueológico Dominicano.</p>
+            <div class="mt-4 text-[10px] text-stone-500 max-w-xl mx-auto uppercase tracking-tighter opacity-70">
                 Desarrollado para la protección y difusión del legado cultural bajo estrictos protocolos de seguridad de datos institucionales.
             </div>
         </div>
