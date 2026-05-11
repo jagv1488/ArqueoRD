@@ -3,8 +3,7 @@
         <!-- LADO IZQUIERDO: Imagen (50% de la pantalla) -->
         <div class="hidden lg:flex lg:w-1/2 relative bg-[#1F4E6E]">
             <div class="absolute inset-0 bg-gradient-to-br from-[#1F4E6E]/80 to-[#8B5A2B]/60 z-10"></div>
-            <img src="https://images.unsplash.com/photo-1599408162165-8b8267b4f31d?auto=format&fit=crop&q=80"
-                 class="absolute inset-0 w-full h-full object-cover">
+            <img src="public/loginbackground.png" class="absolute inset-0 w-full h-full object-cover">
             <div class="relative z-20 flex flex-col justify-center px-12 text-white">
                 <span class="bg-[#C56A3D] text-white px-3 py-1 rounded-full text-[9.9px] font-black uppercase tracking-widest w-fit mb-4">
                     Patrimonio Nacional
@@ -29,10 +28,10 @@
                 <!-- CREDENCIALES REDUCIDAS -->
                 <div class="mb-5 p-3 bg-[#FEFAE0] border border-[#D4A373]/30 rounded-xl">
                     <p class="text-[9.9px] text-stone-700 font-bold  tracking-widest">
-                        <i class="fas fa-user mr-1"></i> Admin: <span class="text-[#1F4E6E] font-black lowercase">admin@arqueord.com.do</span>
+                        <i class="fas fa-user mr-1"></i> Admin: <span class="text-[#1F4E6E] font-black lowercase">demo@arqueord.org.do</span>
                     </p>
                     <p class="text-[9.9px] text-stone-700 font-bold tracking-widest">
-                        <i class="fas fa-unlock mr-1"></i> Clave: <span class="text-[#1F4E6E] font-black">password123</span>
+                        <i class="fas fa-unlock mr-1"></i> Clave: <span class="text-[#1F4E6E] font-black">Demo123</span>
                     </p>
                 </div>
 

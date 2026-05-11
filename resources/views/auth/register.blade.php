@@ -3,14 +3,12 @@
         <!-- LADO IZQUIERDO: Visual (40% de la pantalla para dar espacio al form) -->
         <div class="hidden lg:flex lg:w-2/5 relative bg-[#8B5A2B]">
             <div class="absolute inset-0 bg-gradient-to-br from-[#8B5A2B]/90 to-[#1F4E6E]/70 z-10"></div>
-            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&q=80"
-                 class="absolute inset-0 w-full h-full object-cover">
+            <img  src="public/registerbackground.png" class="absolute inset-0 w-full h-full object-cover">
             <div class="relative z-20 flex flex-col justify-center px-10 text-white">
                 <h1 class="text-4xl font-serif font-bold leading-tight">Protege el <br><span class="text-[#FEFAE0]">Legado</span></h1>
                 <p class="mt-4 text-sm text-white/80 border-l-2 border-[#FEFAE0] pl-4 italic">Sistema Nacional de Registro Arqueológico.</p>
             </div>
         </div>
-
         <!-- LADO DERECHO: Formulario (60% de la pantalla) -->
         <div class="w-full lg:w-3/5 flex items-center justify-center p-6 md:p-12 bg-[#FDFCFB]">
             <div class="w-full max-w-xl">

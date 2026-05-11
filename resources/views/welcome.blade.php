@@ -108,9 +108,7 @@
                     </div>
 
                     <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 flex flex-wrap gap-2 md:gap-3 w-[110%] justify-center z-30">
-                        <span class="bg-white text-[#1F4E6E] text-[9px] md:text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full shadow-md border border-stone-100 cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:scale-110 hover:shadow-[0_10px_20px_rgba(31,78,110,0.25)] hover:border-[#1F4E6E] whitespace-nowrap">
-                            <i class="fas fa-robot mr-1"></i> STEAM
-                        </span>
+
 
                         <span class="bg-white text-[#C56A3D] text-[9px] md:text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full shadow-md border border-stone-100 cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:scale-110 hover:shadow-[0_10px_20px_rgba(197,106,61,0.25)] hover:border-[#C56A3D] whitespace-nowrap">
                             <i class="fas fa-award mr-1"></i> FLL Unearthed
