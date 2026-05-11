@@ -1,9 +1,8 @@
 <x-guest-layout>
     <div class="flex h-screen bg-white overflow-hidden">
-        <!-- LADO IZQUIERDO: Imagen (50% de la pantalla) -->
         <div class="hidden lg:flex lg:w-1/2 relative bg-[#1F4E6E]">
             <div class="absolute inset-0 bg-gradient-to-br from-[#1F4E6E]/80 to-[#8B5A2B]/60 z-10"></div>
-            <img src="public/loginbackground.png" class="absolute inset-0 w-full h-full object-cover">
+            <img src="{{ asset('loginbackground.png') }}"  class="absolute inset-0 w-full h-full object-cover">
             <div class="relative z-20 flex flex-col justify-center px-12 text-white">
                 <span class="bg-[#C56A3D] text-white px-3 py-1 rounded-full text-[9.9px] font-black uppercase tracking-widest w-fit mb-4">
                     Patrimonio Nacional
@@ -17,17 +16,22 @@
             </div>
         </div>
 
-        <!-- LADO DERECHO: Formulario -->
         <div class="w-full lg:w-1/2 flex items-center justify-center p-6 bg-[#FDFCFB]">
             <div class="w-full max-w-sm">
+
+                <div class="mb-8 flex justify-center lg:justify-start">
+                    <a href="{{ url('/') }}" class="inline-flex items-center text-[9px] font-black uppercase tracking-widest text-stone-500 hover:text-[#C56A3D] transition-all bg-white hover:bg-[#FDF9F2] py-2.5 px-5 rounded-full border border-stone-200 hover:border-[#D4A373]/50 shadow-sm group">
+                        <i class="fas fa-arrow-left mr-2 transform group-hover:-translate-x-1 transition-transform"></i> Volver al Portal Público
+                    </a>
+                </div>
+
                 <div class="mb-6 text-center lg:text-left">
                     <span class="text-2xl font-black text-[#1F4E6E] uppercase tracking-tighter">Arqueo<span class="text-[#C56A3D]">RD</span></span>
                     <h2 class="text-2xl font-serif font-bold text-[#8B5A2B] mt-2">Acceso al Panel</h2>
                 </div>
 
-                <!-- CREDENCIALES REDUCIDAS -->
                 <div class="mb-5 p-3 bg-[#FEFAE0] border border-[#D4A373]/30 rounded-xl">
-                    <p class="text-[9.9px] text-stone-700 font-bold  tracking-widest">
+                    <p class="text-[9.9px] text-stone-700 font-bold tracking-widest">
                         <i class="fas fa-user mr-1"></i> Admin: <span class="text-[#1F4E6E] font-black lowercase">demo@arqueord.org.do</span>
                     </p>
                     <p class="text-[9.9px] text-stone-700 font-bold tracking-widest">

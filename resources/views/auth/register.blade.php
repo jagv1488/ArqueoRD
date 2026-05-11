@@ -1,17 +1,23 @@
 <x-guest-layout>
     <div class="flex h-screen bg-white overflow-hidden">
-        <!-- LADO IZQUIERDO: Visual (40% de la pantalla para dar espacio al form) -->
         <div class="hidden lg:flex lg:w-2/5 relative bg-[#8B5A2B]">
             <div class="absolute inset-0 bg-gradient-to-br from-[#8B5A2B]/90 to-[#1F4E6E]/70 z-10"></div>
-            <img  src="public/registerbackground.png" class="absolute inset-0 w-full h-full object-cover">
+            <img src="{{ asset('registerbackground.png') }}" class="absolute inset-0 w-full h-full object-cover">
             <div class="relative z-20 flex flex-col justify-center px-10 text-white">
                 <h1 class="text-4xl font-serif font-bold leading-tight">Protege el <br><span class="text-[#FEFAE0]">Legado</span></h1>
                 <p class="mt-4 text-sm text-white/80 border-l-2 border-[#FEFAE0] pl-4 italic">Sistema Nacional de Registro Arqueológico.</p>
             </div>
         </div>
-        <!-- LADO DERECHO: Formulario (60% de la pantalla) -->
+
         <div class="w-full lg:w-3/5 flex items-center justify-center p-6 md:p-12 bg-[#FDFCFB]">
             <div class="w-full max-w-xl">
+
+                <div class="mb-8 flex justify-center lg:justify-start">
+                    <a href="{{ url('/') }}" class="inline-flex items-center text-[9px] font-black uppercase tracking-widest text-stone-500 hover:text-[#C56A3D] transition-all bg-white hover:bg-[#FDF9F2] py-2.5 px-5 rounded-full border border-stone-200 hover:border-[#D4A373]/50 shadow-sm group">
+                        <i class="fas fa-arrow-left mr-2 transform group-hover:-translate-x-1 transition-transform"></i> Volver al Portal Público
+                    </a>
+                </div>
+
                 <div class="mb-6 flex justify-between items-end">
                     <div>
                         <span class="text-xl font-black text-[#1F4E6E] uppercase tracking-tighter">Arqueo<span class="text-[#C56A3D]">RD</span></span>
@@ -21,7 +27,6 @@
 
                 <form method="POST" action="{{ route('register') }}" x-data="{ loading: false }" @submit="loading = true" class="space-y-4">
                     @csrf
-                    <!-- Grid compacta de 2 columnas -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-3">
                         <div>
                             <x-input-label for="name" value="Nombre Completo" class="text-[9.9px] font-black text-stone-400 uppercase tracking-widest mb-1 ml-1" />

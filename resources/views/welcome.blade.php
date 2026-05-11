@@ -23,14 +23,14 @@
         /* EFECTO "DESENTERRAR" PARA LAS TARJETAS DE ESTUDIANTES */
         .card-unearth {
             position: relative;
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); /* Efecto de rebote al salir */
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
             z-index: 1;
         }
         .card-unearth:hover {
             transform: translateY(-10px) scale(1.03) rotate(-1deg);
             box-shadow: 0 20px 25px -5px rgba(197, 106, 61, 0.25), 0 0 0 2px rgba(197, 106, 61, 0.1);
             border-color: #D4A373 !important;
-            background-color: #FEFAE0 !important; /* Brillo de arena/oro */
+            background-color: #FEFAE0 !important;
             z-index: 10;
         }
         .card-unearth:hover .name-text {
@@ -49,8 +49,124 @@
             border-color: #D4A373 !important;
             z-index: 10;
         }
+
+        /* Brillo animado para el botón Continuar de la Modal */
+        @keyframes shine-btn {
+            0% { left: -100%; }
+            20% { left: 100%; }
+            100% { left: 100%; }
+        }
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg);
+            animation: shine-btn 3s infinite;
+            z-index: 1;
+        }
+
+        /* Scrollbar personalizado para la Modal */
+        .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #FEFAE0; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #C56A3D; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #8B5A2B; }
     </style>
 
+    <div x-data="{ showModal: true }"
+         x-show="showModal"
+         style="display: none;"
+         class="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6"
+         x-transition:enter="transition ease-out duration-700"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition ease-in duration-500"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0">
+
+        <div class="absolute inset-0 bg-[#112d40]/85 backdrop-blur-sm"></div>
+
+        <div x-show="showModal"
+             x-transition:enter="transition ease-out duration-500 delay-150"
+             x-transition:enter-start="opacity-0 translate-y-24 scale-90 rotate-2"
+             x-transition:enter-end="opacity-100 translate-y-0 scale-100 rotate-0"
+             x-transition:leave="transition ease-in duration-500"
+             x-transition:leave-start="opacity-100 translate-y-0 scale-100 rotate-0"
+             x-transition:leave-end="opacity-0 translate-y-24 scale-90 -rotate-2"
+             class="relative bg-[#FDF9F2] w-full max-w-4xl rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-[#C56A3D]/40 overflow-hidden flex flex-col max-h-[95vh] lg:max-h-[85vh]">
+
+            <div class="h-3 bg-gradient-to-r from-[#1F4E6E] via-[#C56A3D] to-[#8B5A2B]"></div>
+
+            <div class="p-6 md:p-10 overflow-y-auto custom-scrollbar flex-grow">
+
+                <div class="text-center mb-8">
+                    <h2 class="text-4xl font-serif font-bold text-[#8B5A2B] mb-2">Proyecto <span class="text-[#C56A3D]">ArqueoRD</span></h2>
+                    <p class="text-stone-500 font-bold tracking-widest uppercase text-xs">FLL Temporada Unearthed</p>
+                </div>
+
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="bg-blue-50/70 border border-blue-100 p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-[#1F4E6E] text-white rounded-full flex items-center justify-center text-2xl shadow-inner">🤖</div>
+                            <h3 class="text-xl md:text-2xl font-serif font-bold text-[#1F4E6E]">Bienvenida </h3>
+                        </div>
+                        <p class="text-stone-700 leading-relaxed text-[15px] md:text-base">
+                            "¡Bienvenidos a ArqueoRD! De parte del equipo GeekBots y el Club de Robótica y Tecnología Prof. Jesús María Fernández, nos llena de orgullo recibirte en este espacio. Este proyecto es el fruto de nuestra pasión por la innovación y la metodología STEAM, desarrollado especialmente para la temporada Unearthed de la FIRST LEGO League. Aquí unimos la tecnología del futuro con el rescate de nuestro pasado."
+                        </p>
+                    </div>
+
+                    <div class="bg-orange-50/70 border border-orange-100 p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-[#C56A3D] text-white rounded-full flex items-center justify-center text-2xl shadow-inner">⚠️</div>
+                            <h3 class="text-xl md:text-2xl font-serif font-bold text-[#C56A3D]">La Problemática Identificada</h3>
+                        </div>
+                        <p class="text-stone-700 leading-relaxed text-[15px] md:text-base">
+                            "Durante nuestra investigación de campo, descubrimos una realidad alarmante: el patrimonio arqueológico dominicano se encuentra en riesgo constante. Identificamos que la falta de herramientas digitales accesibles en las excavaciones provoca que muchos hallazgos no se documenten con la rapidez necesaria. Además, la exposición de coordenadas geográficas de los yacimientos los hace vulnerables al saqueo (huaqueo), y la gestión en papel ralentiza la comunicación de descubrimientos vitales a las autoridades."
+                        </p>
+                    </div>
+
+                    <div class="bg-[#FEFAE0]/90 border border-[#D4A373]/50 p-6 md:p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-[#8B5A2B] text-white rounded-full flex items-center justify-center text-2xl shadow-inner">💡</div>
+                            <h3 class="text-xl md:text-2xl font-serif font-bold text-[#8B5A2B]">Nuestra Solución</h3>
+                        </div>
+                        <p class="text-stone-700 leading-relaxed text-[15px] md:text-base">
+                            "ArqueoRD nace como un escudo tecnológico para proteger nuestro legado. Hemos diseñado una bitácora digital inteligente que permite a los investigadores registrar sus hallazgos en tiempo real desde cualquier dispositivo. Nuestra plataforma encripta y protege las coordenadas sensibles, genera fichas técnicas automáticas y conecta directamente la información validada con el Ministerio de Cultura. Con ArqueoRD, no solo registramos piezas; aseguramos que la historia de la República Dominicana sobreviva para las futuras generaciones."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-6 bg-white border-t border-[#E6DBCB] flex justify-center items-center relative overflow-hidden rounded-b-[2.5rem]">
+                <button @click="showModal = false"
+                        class="btn-shine relative bg-gradient-to-r from-[#1F4E6E] to-[#153850] hover:from-[#C56A3D] hover:to-[#8B5A2B] text-white px-12 py-4 rounded-full font-black text-lg uppercase tracking-wider shadow-[0_10px_20px_rgba(31,78,110,0.3)] hover:shadow-[0_10px_25px_rgba(197,106,61,0.4)] transition-all duration-500 transform hover:scale-105 active:scale-95 flex items-center gap-3 group overflow-hidden">
+                    <span class="relative z-10 flex items-center gap-2">
+                        Continuar <i class="fas fa-rocket group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300"></i>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div x-data="{ showTopBtn: false }"
+         @scroll.window="showTopBtn = (window.pageYOffset > 400)"
+         class="fixed bottom-6 right-6 z-40"
+         x-show="showTopBtn"
+         style="display: none;"
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0 translate-y-10"
+         x-transition:enter-end="opacity-100 translate-y-0"
+         x-transition:leave="transition ease-in duration-300"
+         x-transition:leave-start="opacity-100 translate-y-0"
+         x-transition:leave-end="opacity-0 translate-y-10">
+
+        <button @click="window.scrollTo({top: 0, behavior: 'smooth'})"
+                class="bg-[#1F4E6E] hover:bg-[#C56A3D] text-white w-14 h-14 rounded-full shadow-[0_5px_15px_rgba(0,0,0,0.3)] flex items-center justify-center transition-all duration-300 border-2 border-white/20 hover:border-white/50 group transform hover:-translate-y-2 hover:scale-110 focus:outline-none">
+            <i class="fas fa-chevron-up text-xl group-hover:-translate-y-1 transition-transform duration-300"></i>
+        </button>
+    </div>
     <section id="inicio"
              x-data="{ mouseX: 0, mouseY: 0 }"
              @mousemove="mouseX = ($event.clientX - (window.innerWidth / 2)) * 0.04; mouseY = ($event.clientY - (window.innerHeight / 2)) * 0.04"
@@ -108,7 +224,6 @@
                     </div>
 
                     <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 flex flex-wrap gap-2 md:gap-3 w-[110%] justify-center z-30">
-
 
                         <span class="bg-white text-[#C56A3D] text-[9px] md:text-[10px] font-black uppercase tracking-widest px-4 py-2 rounded-full shadow-md border border-stone-100 cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:scale-110 hover:shadow-[0_10px_20px_rgba(197,106,61,0.25)] hover:border-[#C56A3D] whitespace-nowrap">
                             <i class="fas fa-award mr-1"></i> FLL Unearthed
@@ -338,7 +453,6 @@
         </div>
     </section>
 
-
     <section id="patrocinadores" class="py-16 bg-white border-t border-[#E6DBCB] overflow-hidden">
         <div class="container mx-auto px-5 mb-8 text-center">
             <p class="text-stone-400 font-bold uppercase tracking-widest text-xs">Con el respaldo institucional de</p>
@@ -447,7 +561,6 @@
                     total: 5,
                     moves: 0,
                     gameOver: false,
-                    // Iconos que simulan: hueso, vasija/gemas, moneda colonial, anillo, corona
                     artifacts: ['fa-bone', 'fa-gem', 'fa-coins', 'fa-ring', 'fa-crown'],
 
                     init() {
@@ -464,7 +577,6 @@
                             icon: ''
                         }));
 
-                        // Esconder los 5 artefactos aleatoriamente en la cuadrícula
                         let placed = 0;
                         while (placed < this.total) {
                             let randomIndex = Math.floor(Math.random() * 25);
@@ -480,12 +592,12 @@
                         if (this.gameOver || this.grid[index].revealed) return;
 
                         this.grid[index].revealed = true;
-                        this.moves++; // Contar el intento
+                        this.moves++;
 
                         if (this.grid[index].hasArtifact) {
-                            this.found++; // Sumar al marcador si es un artefacto
+                            this.found++;
                             if (this.found === this.total) {
-                                this.gameOver = true; // Fin del juego
+                                this.gameOver = true;
                             }
                         }
                     }
