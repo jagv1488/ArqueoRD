@@ -31,7 +31,7 @@
             <a href="{{ url('/') }}" class="group flex items-center gap-3 cursor-pointer transition-all duration-300">
                 <div class="relative flex items-center justify-center">
                     <div class="absolute inset-0 bg-[#C56A3D] blur-lg opacity-0 group-hover:opacity-40 rounded-full transition-opacity duration-500"></div>
-                    <img src="{{ asset('storage/Logo.svg') }}" alt="Logo ArqueoRD" class="w-10 h-10 md:w-14 md:h-14 transform group-hover:-rotate-6 group-hover:scale-110 transition-all duration-500 ease-out z-10">
+                    <img src="{{ asset('Logo.svg') }}" alt="Logo ArqueoRD" class="w-10 h-10 md:w-14 md:h-14 transform group-hover:-rotate-6 group-hover:scale-110 transition-all duration-500 ease-out z-10">
                 </div>
 
                 <div class="flex flex-col justify-center transform group-hover:translate-x-1 transition-transform duration-500">
@@ -93,7 +93,7 @@
 
     <footer class="bg-transparent text-stone-700 py-12 mt-auto border-t-4 border-[#C56A3D]">
         <div class="container mx-auto px-5 text-center">
-            <img src="{{ asset('storage/Logo.svg') }}" alt="Logo ArqueoRD" class="h-20 mx-auto mb-4 object-contain" onerror="this.style.display='none'">
+            <img src="{{ asset('Logo.svg') }}" alt="Logo ArqueoRD" class="h-20 mx-auto mb-4 object-contain" onerror="this.style.display='none'">
 
             <p class="text-sm font-bold uppercase tracking-widest text-[#8B5A2B]">© {{ date('Y') }} ArqueoRD</p>
             <p class="text-xs font-medium mt-1">Bitácora Digital del Patrimonio Arqueológico Dominicano.</p>

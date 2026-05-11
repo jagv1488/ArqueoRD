@@ -104,7 +104,7 @@
                     <div class="absolute -inset-1 bg-gradient-to-r from-[#C56A3D] to-[#1F4E6E] rounded-[2.5rem] blur opacity-40 animate-pulse"></div>
 
                     <div class="relative bg-stone-900 rounded-[2rem] overflow-hidden shadow-2xl aspect-video border-4 border-white/50 flex items-center justify-center">
-                        <video controls autoplay muted loop class="w-full h-full object-cover bg-black" src="{{ asset('storage/ArqueoRDvideo.mp4') }}"></video>
+                        <video controls autoplay muted loop class="w-full h-full object-cover bg-black" src="{{ asset('ArqueoRDvideo.mp4') }}"></video>
                     </div>
 
                     <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 flex flex-wrap gap-2 md:gap-3 w-[110%] justify-center z-30">
